@@ -33,7 +33,7 @@ const Login = () => {
     <div className="relative">
       <BackgroundImage />
       <div className="absolute top-0 left-0 bg-black-rgba h-screen w-screen">
-        <Header login />
+        <Header signup />
         <div className="mt-5 text-white flex justify-center items-center flex-col">
           <h2 className="text-3xl font-bold">Login</h2>
           <form onSubmit={handleLogin}>

@@ -10,7 +10,7 @@ const Header = (props) => {
         className="px-4 py-2 bg-red-600 border-0 text-white rounded font-bold text-base"
         onClick={() => navigate(props.login ? "/login" : "/signup")}
       >
-        {props.login ? "Log In" : "Sign In"}
+        {props.login ? "Log In" : "Sign Up"}
       </button>
     </div>
   );
