@@ -36,7 +36,7 @@ const Signup = () => {
         <Header login />
         <div className="">
           <div>
-            <h1 className="text-6xl font-bold  lg:px-96 mt-2">
+            <h1 className="text-6xl font-bold  lg:px-96">
               Unlimited Movies, TV Shows and many more
             </h1>
             <h4 className="text-3xl font-bold mt-2">
@@ -46,7 +46,7 @@ const Signup = () => {
               Ready to watch. Enter your email to create or restart membership.
             </h6>
           </div>
-          <div className="mt-5">
+          <div className="mt-2">
             <form
               className="flex flex-col gap-3 md:flex-row md:gap-0 items-center justify-center"
               onSubmit={handleSignup}
