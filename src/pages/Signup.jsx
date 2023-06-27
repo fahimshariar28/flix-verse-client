@@ -36,7 +36,7 @@ const Signup = () => {
         <Header login />
         <div className="">
           <div>
-            <h1 className="text-6xl font-bold px-96 mt-2">
+            <h1 className="text-6xl font-bold  lg:px-96 mt-2">
               Unlimited Movies, TV Shows and many more
             </h1>
             <h4 className="text-3xl font-bold mt-2">
@@ -47,7 +47,10 @@ const Signup = () => {
             </h6>
           </div>
           <div className="mt-5">
-            <form onSubmit={handleSignup}>
+            <form
+              className="flex flex-col gap-3 md:flex-row md:gap-0 items-center justify-center"
+              onSubmit={handleSignup}
+            >
               <input
                 className="text-black border-0 p-6 text-lg"
                 type="email"
