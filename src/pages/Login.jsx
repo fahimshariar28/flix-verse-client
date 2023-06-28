@@ -38,13 +38,13 @@ const Login = () => {
           <h2 className="text-3xl font-bold">Login</h2>
           <form onSubmit={handleLogin}>
             <input
-              className="text-black border-0 py-2 px-4 rounded-sm mt-3 text-lg block"
+              className="text-black w-60 border-0 py-2 px-4 rounded-sm mt-3 text-lg block"
               type="email"
               name="email"
               placeholder="Enter Your Email"
             />
             <input
-              className="text-black border-0 py-2 px-4 rounded-sm mt-3 text-lg block"
+              className="text-black w-60 border-0 py-2 px-4 rounded-sm mt-3 text-lg block"
               type="password"
               name="password"
               placeholder="********"
@@ -52,7 +52,7 @@ const Login = () => {
             <input
               type="submit"
               value="Login"
-              className="px-4 py-2 bg-red-600 border-0 text-white rounded font-bold text-base cursor-pointer block mt-3"
+              className="px-4 py-2 w-60 bg-red-600 border-0 text-white rounded font-bold text-base cursor-pointer block mt-3"
             />
           </form>
           <p className="mt-5">
