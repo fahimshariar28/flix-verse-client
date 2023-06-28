@@ -52,13 +52,13 @@ const Signup = () => {
               onSubmit={handleSignup}
             >
               <input
-                className="text-black border-0 p-7 h-20 text-lg"
+                className="text-black border-0 p-7 h-20 w-60 text-lg"
                 type="email"
                 name="email"
                 placeholder="Enter Your Email"
               />
               <input
-                className="text-black border-0 p-7 h-20 text-lg"
+                className="text-black border-0 p-7 h-20 w-60 text-lg"
                 type="password"
                 name="password"
                 placeholder="********"
@@ -66,7 +66,7 @@ const Signup = () => {
               <input
                 type="submit"
                 value="Get Started"
-                className="px-5 py-7 h-20 bg-red-600 border-0 text-white font-bold text-base cursor-pointer"
+                className="px-5 py-7 h-20 w-60 lg:w-36 bg-red-600 border-0 text-white font-bold text-base cursor-pointer"
               />
             </form>
             <p className="mt-5">
