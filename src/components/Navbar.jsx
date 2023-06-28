@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="brand flex items-center justify-center">
             <img className="h-16" src={logo} alt="Logo" />
           </div>
-          <ul className="flex text-white no-underline gap-8">
+          <ul className=" lg:flex text-white no-underline gap-8 hidden">
             {links.map(({ name, link }) => {
               return (
                 <li key={name}>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-4 items-center">
           <div
-            className={`flex gap-2 items-center justify-center p-1 ps-2 ${
+            className={`flex gap-2 items-center justify-center p-1 ${
               showSearch ? "show-search" : ""
             }`}
           >
