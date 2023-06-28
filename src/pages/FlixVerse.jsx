@@ -17,12 +17,12 @@ const FlixVerse = () => {
         <div className="absolute bottom-20">
           <div>
             <img
-              className="w-full h-full ms-20"
+              className="w-full lg:w-full h-full lg:ml-20"
               src={MovieLogo}
               alt="Movie Logo"
             />
           </div>
-          <div className="flex m-20 gap-8">
+          <div className="flex my-28 lg:m-20 gap-8">
             <button
               onClick={() => navigate("/player")}
               className="flex bg-yellow-50 justify-center items-center text-2xl gap-4 rounded p-2 pl-8 pr-9 border-0 cursor-pointer hover:opacity-80"
