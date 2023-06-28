@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import AuthProvider from "./provider/AuthProvider";
 import PrivateRoute from "./routes/PrivateRoute";
 import MainLayout from "./Layouts/MainLayout";
+import Player from "./pages/Player";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <FlixVerse />,
+      },
+      {
+        path: "/player",
+        element: <Player />,
       },
     ],
   },
