@@ -7,15 +7,22 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuthProvider from "./provider/AuthProvider";
 import PrivateRoute from "./routes/PrivateRoute";
+import MainLayout from "./Layouts/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <PrivateRoute>
-        <FlixVerse />
+        <MainLayout />
       </PrivateRoute>
     ),
+    children: [
+      {
+        path: "/",
+        element: <FlixVerse />,
+      },
+    ],
   },
   {
     path: "/login",

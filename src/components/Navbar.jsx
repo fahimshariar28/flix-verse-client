@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 
-const Navbar = ({ isScrolled }) => {
+const Navbar = () => {
   const { logOut } = useContext(AuthContext);
 
   const [showSearch, setShowSearch] = useState(false);
@@ -18,11 +18,7 @@ const Navbar = ({ isScrolled }) => {
 
   return (
     <div>
-      <nav
-        className={`${
-          isScrolled ? "bg-black" : ""
-        } flex sticky top-0 h-24 w-full justify-between z-10 px-16 items-center ease-out duration-300`}
-      >
+      <nav className="bg-black flex sticky top-0 h-24 w-full justify-between z-10 px-16 items-center ease-out duration-300">
         <div className="flex gap-8 items-center">
           <div className="brand flex items-center justify-center">
             <img className="h-16" src={logo} alt="Logo" />
