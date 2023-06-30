@@ -3,7 +3,6 @@ import MovieLogo from "../assets/homeTitle.webp";
 import { useNavigate } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-
 const FlixVerse = () => {
   const navigate = useNavigate();
   return (

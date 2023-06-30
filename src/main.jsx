@@ -9,6 +9,8 @@ import AuthProvider from "./provider/AuthProvider";
 import PrivateRoute from "./routes/PrivateRoute";
 import MainLayout from "./Layouts/MainLayout";
 import Player from "./pages/Player";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const router = createBrowserRouter([
   {
@@ -41,8 +43,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <Provider store={store}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </Provider>
   </React.StrictMode>
 );
