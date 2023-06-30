@@ -3,8 +3,26 @@ import MovieLogo from "../assets/homeTitle.webp";
 import { useNavigate } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchMovies, getGenres } from "../store";
 const FlixVerse = () => {
   const navigate = useNavigate();
+  const movies = useSelector((state) => state.flixVerse.movies);
+  const genresLoaded = useSelector((state) => state.flixVerse.genresLoaded);
+  const genres = useSelector((state) => state.flixVerse.genres);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getGenres());
+  }, []);
+  useEffect(() => {
+    if (genresLoaded) {
+      dispatch(fetchMovies({ genres, type: "all" }));
+    }
+  }, [genresLoaded]);
+  console.log(movies);
+
   return (
     <div className="bg-black">
       <div className="relative brightness-50">

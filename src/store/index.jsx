@@ -11,7 +11,7 @@ const initialState = {
   genres: [],
 };
 
-export const getGenres = createAsyncThunk("netflix/genres", async () => {
+export const getGenres = createAsyncThunk("flixVerse/genres", async () => {
   const {
     data: { genres },
   } = await axios.get(
@@ -51,10 +51,10 @@ const getRawData = async (api, genres, paging = false) => {
 };
 
 export const fetchMovies = createAsyncThunk(
-  "netflix/trending",
+  "flixVerse/trending",
   async ({ type }, thunkAPI) => {
     const {
-      netflix: { genres },
+      flixVerse: { genres },
     } = thunkAPI.getState();
     return getRawData(
       `https://api.themoviedb.org/3/trending/${type}/week?api_key=${
@@ -66,8 +66,8 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
-const NetflixSlice = createSlice({
-  name: "Netflix",
+const FlixVerseSlice = createSlice({
+  name: "FlixVerse",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(getGenres.fulfilled, (state, action) => {
@@ -82,8 +82,8 @@ const NetflixSlice = createSlice({
 
 export const store = configureStore({
   reducer: {
-    netflix: NetflixSlice.reducer,
+    flixVerse: FlixVerseSlice.reducer,
   },
 });
 
-export const { setGenres, setMovies } = NetflixSlice.actions;
+export const { setGenres, setMovies } = FlixVerseSlice.actions;
