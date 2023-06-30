@@ -6,6 +6,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMovies, getGenres } from "../store";
+import Slider from "../components/Slider";
 const FlixVerse = () => {
   const navigate = useNavigate();
   const movies = useSelector((state) => state.flixVerse.movies);
@@ -54,6 +55,7 @@ const FlixVerse = () => {
           </div>
         </div>
       </div>
+      <Slider movies={movies} />
     </div>
   );
 };
