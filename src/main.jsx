@@ -12,6 +12,7 @@ import Player from "./pages/Player";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
+import TvShows from "./pages/TvShows";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/movies",
         element: <Movies />,
+      },
+      {
+        path: "/tv",
+        element: <TvShows />,
       },
     ],
   },
