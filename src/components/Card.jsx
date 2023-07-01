@@ -21,7 +21,8 @@ const Card = ({ movie, isLiked = false }) => {
     try {
       const res = await axios.post("http://localhost:5000/addWatchList", {
         email,
-        movieData: movie,
+        movie: movie,
+        movieId: movie.id,
       });
       console.log(res);
     } catch (err) {

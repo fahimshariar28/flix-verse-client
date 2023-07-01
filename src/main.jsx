@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
+import Linked from "./pages/Linked";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/tv",
         element: <TvShows />,
+      },
+      {
+        path: "/mylist",
+        element: <Linked />,
       },
     ],
   },

@@ -86,7 +86,7 @@ export const getUsersLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`http://localhost:5000?email=${email}`);
+    } = await axios.get(`http://localhost:5000/getWatchList/${email}`);
     return movies;
   }
 );
