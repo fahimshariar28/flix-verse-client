@@ -81,6 +81,16 @@ export const fetchDataByGenre = createAsyncThunk(
   }
 );
 
+export const getUsersLikedMovies = createAsyncThunk(
+  "flixVerse/liked",
+  async (email) => {
+    const {
+      data: { movies },
+    } = await axios.get(`http://localhost:5000?email=${email}`);
+    return movies;
+  }
+);
+
 const FlixVerseSlice = createSlice({
   name: "FlixVerse",
   initialState,
@@ -93,6 +103,9 @@ const FlixVerseSlice = createSlice({
       state.movies = action.payload;
     });
     builder.addCase(fetchDataByGenre.fulfilled, (state, action) => {
+      state.movies = action.payload;
+    });
+    builder.addCase(getUsersLikedMovies.fulfilled, (state, action) => {
       state.movies = action.payload;
     });
   },
