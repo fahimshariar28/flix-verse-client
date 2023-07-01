@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { IoPlayCircleSharp } from "react-icons/io5";
@@ -13,7 +12,6 @@ import video from "../assets/video.mp4";
 const Card = ({ movie, isLiked = false }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
   const email = user.email;
 
@@ -30,7 +28,7 @@ const Card = ({ movie, isLiked = false }) => {
 
   return (
     <div
-      className="max-w-[14.375rem] w-[14.375rem] h-full cursor-pointer relative text-white"
+      className="max-w-[14.375rem] w-[14.375rem] h-full relative text-white"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -66,32 +64,33 @@ const Card = ({ movie, isLiked = false }) => {
             <div className="flex justify-between">
               <div className="flex gap-4">
                 <IoPlayCircleSharp
+                  className="cursor-pointer"
                   title="Play"
                   onClick={() => navigate("/player")}
                 />
-                <RiThumbUpFill title="Like" />
-                <RiThumbDownFill title="Dislike" />
+                <RiThumbUpFill className="cursor-pointer" title="Like" />
+                <RiThumbDownFill className="cursor-pointer" title="Dislike" />
                 {isLiked ? (
                   <BsCheck
+                    className="cursor-pointer"
                     title="Remove from List"
-                    // onClick={() =>
-                    //   dispatch(
-                    //     removeMovieFromLiked({ movieId: movie.id, email })
-                    //   )
-                    // }
                   />
                 ) : (
-                  <AiOutlinePlus title="Add to my list" onClick={addToList} />
+                  <AiOutlinePlus
+                    className="cursor-pointer"
+                    title="Add to my list"
+                    onClick={addToList}
+                  />
                 )}
               </div>
-              <div className="info">
-                <BiChevronDown title="More Info" />
+              <div>
+                <BiChevronDown className="cursor-pointer" title="More Info" />
               </div>
             </div>
             <div className="flex">
               <ul className="flex gap-4">
-                {movie.genres.map((genre) => (
-                  <li className="pr-3" key={genre.index}>
+                {movie.genres.map((genre, index) => (
+                  <li className="pr-3" key={index}>
                     {genre}
                   </li>
                 ))}
