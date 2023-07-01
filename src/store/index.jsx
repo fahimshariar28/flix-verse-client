@@ -66,6 +66,21 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
+export const fetchDataByGenre = createAsyncThunk(
+  "flixVerse/genre",
+  async ({ genre, type }, thunkAPI) => {
+    const {
+      flixVerse: { genres },
+    } = thunkAPI.getState();
+    return getRawData(
+      `https://api.themoviedb.org/3/discover/${type}?api_key=${
+        import.meta.env.VITE_TMDB_APIKEY
+      }&with_genres=${genre}`,
+      genres
+    );
+  }
+);
+
 const FlixVerseSlice = createSlice({
   name: "FlixVerse",
   initialState,
@@ -75,6 +90,9 @@ const FlixVerseSlice = createSlice({
       state.genresLoaded = true;
     });
     builder.addCase(fetchMovies.fulfilled, (state, action) => {
+      state.movies = action.payload;
+    });
+    builder.addCase(fetchDataByGenre.fulfilled, (state, action) => {
       state.movies = action.payload;
     });
   },

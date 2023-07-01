@@ -11,6 +11,7 @@ import MainLayout from "./Layouts/MainLayout";
 import Player from "./pages/Player";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Movies from "./pages/Movies";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/player",
         element: <Player />,
+      },
+      {
+        path: "/movies",
+        element: <Movies />,
       },
     ],
   },
