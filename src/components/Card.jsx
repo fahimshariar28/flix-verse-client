@@ -8,8 +8,10 @@ import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 import axios from "axios";
 import video from "../assets/video.mp4";
+import { useDispatch } from "react-redux";
 
 const Card = ({ movie, isLiked = false }) => {
+  const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
@@ -17,12 +19,13 @@ const Card = ({ movie, isLiked = false }) => {
 
   const addToList = async () => {
     try {
-      await axios.post("http://localhost:5000/api/user/add", {
+      const res = await axios.post("http://localhost:5000/addWatchList", {
         email,
-        data: movie,
+        movieData: movie,
       });
-    } catch (error) {
-      console.log(error);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -74,6 +77,10 @@ const Card = ({ movie, isLiked = false }) => {
                   <BsCheck
                     className="cursor-pointer"
                     title="Remove from List"
+                    onClick={
+                      () => dispatch()
+                      // removeMovieFromLiked({ movieId: movieData.id, email })
+                    }
                   />
                 ) : (
                   <AiOutlinePlus
