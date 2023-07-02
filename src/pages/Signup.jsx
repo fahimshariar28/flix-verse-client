@@ -3,6 +3,7 @@ import BackgroundImage from "../components/BackgroundImage";
 import Header from "../components/Header";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext);
@@ -17,8 +18,13 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        Swal.fire({
+          icon: "success",
+          title: "Account Created Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;

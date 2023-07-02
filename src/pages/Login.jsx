@@ -3,6 +3,7 @@ import BackgroundImage from "../components/BackgroundImage";
 import Header from "../components/Header";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -17,6 +18,12 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        Swal.fire({
+          icon: "success",
+          title: "Logged In Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/");
         // ...
       })

@@ -10,6 +10,7 @@ import axios from "axios";
 import video from "../assets/video.mp4";
 import { useDispatch } from "react-redux";
 import { removeMovieFromLiked } from "../store";
+import Swal from "sweetalert2";
 
 const Card = ({ movie, isLiked = false }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,21 @@ const Card = ({ movie, isLiked = false }) => {
         email,
         data: movie,
       });
+      if (res.data === "Movie already exists") {
+        Swal.fire({
+          icon: "error",
+          title: "Movie already exists in the list",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else if (res.data.acknowledged === true) {
+        Swal.fire({
+          icon: "success",
+          title: "Movie added to the list",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -32,6 +48,12 @@ const Card = ({ movie, isLiked = false }) => {
   const removeFromList = async () => {
     try {
       await dispatch(removeMovieFromLiked({ movieId: movie.id, email }));
+      Swal.fire({
+        icon: "success",
+        title: "Movie removed from the list",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       window.location.reload();
     } catch (err) {
       console.log(err);
