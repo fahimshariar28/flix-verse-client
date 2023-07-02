@@ -94,7 +94,6 @@ export const getUsersLikedMovies = createAsyncThunk(
 export const removeMovieFromLiked = createAsyncThunk(
   "flixVerse/deleteLiked",
   async ({ movieId, email }) => {
-    console.log(movieId, email);
     const {
       data: { movies },
     } = await axios.put("http://localhost:5000/deleteWatchList", {

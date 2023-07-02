@@ -30,6 +30,15 @@ const Card = ({ movie, isLiked = false }) => {
     }
   };
 
+  const removeFromList = async () => {
+    try {
+      await dispatch(removeMovieFromLiked({ movieId: movie.id, email }));
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div
       className="max-w-[14.375rem] w-[14.375rem] h-full relative text-white"
@@ -78,11 +87,7 @@ const Card = ({ movie, isLiked = false }) => {
                   <BsCheck
                     className="cursor-pointer"
                     title="Remove from List"
-                    onClick={() =>
-                      dispatch(
-                        removeMovieFromLiked({ movieId: movie.id, email })
-                      )
-                    }
+                    onClick={removeFromList}
                   />
                 ) : (
                   <AiOutlinePlus
