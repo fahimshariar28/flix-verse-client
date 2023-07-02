@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchMovies, getGenres } from "../store";
 import Slider from "../components/Slider";
+import { Helmet } from "react-helmet-async";
 const FlixVerse = () => {
   const navigate = useNavigate();
   const movies = useSelector((state) => state.flixVerse.movies);
@@ -25,6 +26,9 @@ const FlixVerse = () => {
 
   return (
     <div className="bg-black">
+      <Helmet>
+        <title>FlixVerse</title>
+      </Helmet>
       <div className="relative brightness-50">
         <img
           src={backgroundImage}

@@ -14,6 +14,7 @@ import { store } from "./store";
 import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
 import Liked from "./pages/Liked";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -58,10 +59,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );

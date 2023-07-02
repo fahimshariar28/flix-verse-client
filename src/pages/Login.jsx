@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const Login = () => {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>Login | Flix Verse</title>
+      </Helmet>
       <BackgroundImage />
       <div className="absolute top-0 left-0 bg-black-rgba h-screen w-screen">
         <Header signup />

@@ -4,6 +4,7 @@ import { fetchMovies, getGenres } from "../store";
 import Slider from "../components/Slider";
 import NotAvailable from "../components/NotAvaiable";
 import SelectGenre from "../components/SelectGenre";
+import { Helmet } from "react-helmet-async";
 
 const Movies = () => {
   const movies = useSelector((state) => state.flixVerse.movies);
@@ -19,10 +20,12 @@ const Movies = () => {
       dispatch(fetchMovies({ genres, type: "all" }));
     }
   }, [genresLoaded]);
-  console.log(movies);
 
   return (
     <div className="bg-black text-white">
+      <Helmet>
+        <title>Movies | Flix Verse</title>
+      </Helmet>
       <div className="pt-32">
         <SelectGenre genres={genres} type="movie" />
         {movies.length ? <Slider movies={movies} /> : <NotAvailable />}
