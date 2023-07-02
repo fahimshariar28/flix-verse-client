@@ -21,10 +21,13 @@ const Card = ({ movie, isLiked = false }) => {
 
   const addToList = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/addWatchList", {
-        email,
-        data: movie,
-      });
+      const res = await axios.post(
+        "https://flix-verse-server.vercel.app/addWatchList",
+        {
+          email,
+          data: movie,
+        }
+      );
       if (res.data === "Movie already exists") {
         Swal.fire({
           icon: "error",

@@ -86,7 +86,9 @@ export const getUsersLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`http://localhost:5000/getWatchList/${email}`);
+    } = await axios.get(
+      `https://flix-verse-server.vercel.app/getWatchList/${email}`
+    );
     return movies;
   }
 );
@@ -96,10 +98,13 @@ export const removeMovieFromLiked = createAsyncThunk(
   async ({ movieId, email }) => {
     const {
       data: { movies },
-    } = await axios.put("http://localhost:5000/deleteWatchList", {
-      email,
-      movieId,
-    });
+    } = await axios.put(
+      "https://flix-verse-server.vercel.app/deleteWatchList",
+      {
+        email,
+        movieId,
+      }
+    );
     return movies;
   }
 );
