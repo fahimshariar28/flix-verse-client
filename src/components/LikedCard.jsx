@@ -10,7 +10,7 @@ import axios from "axios";
 import video from "../assets/video.mp4";
 import { useDispatch } from "react-redux";
 
-const Card = ({ movie, isLiked = false }) => {
+const LikedCard = ({ movie, isLiked = false }) => {
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -111,4 +111,4 @@ const Card = ({ movie, isLiked = false }) => {
   );
 };
 
-export default Card;
+export default LikedCard;

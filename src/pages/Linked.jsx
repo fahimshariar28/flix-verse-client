@@ -1,14 +1,15 @@
-import Card from "../components/Card";
 import { getUsersLikedMovies } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import LikedCard from "../components/LikedCard";
 
 const Linked = () => {
   const { user } = useContext(AuthContext);
   const movies = useSelector((state) => state.flixVerse.movies);
   const dispatch = useDispatch();
   const email = user.email;
+  console.log(movies);
 
   useEffect(() => {
     if (email) {
@@ -17,16 +18,16 @@ const Linked = () => {
   }, [email, dispatch]);
 
   return (
-    <div className="m-9 mt-32 gap-12">
-      <div className="content flex column">
+    <div className="p-9 pt-32 gap-12 h-screen bg-black text-white">
+      <div className="content flex flex-col">
         <h1 className="ml-12 text-3xl font-semibold">My List</h1>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 mt-5">
           {movies?.map((movie, index) => {
             return (
-              <Card
-                movieData={movie}
+              <LikedCard
+                movie={movie.movie}
                 index={index}
-                key={movie.id}
+                key={movie._id}
                 isLiked={true}
               />
             );
