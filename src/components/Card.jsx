@@ -9,6 +9,7 @@ import { BsCheck } from "react-icons/bs";
 import axios from "axios";
 import video from "../assets/video.mp4";
 import { useDispatch } from "react-redux";
+import { removeMovieFromLiked } from "../store";
 
 const Card = ({ movie, isLiked = false }) => {
   const dispatch = useDispatch();
@@ -20,9 +21,8 @@ const Card = ({ movie, isLiked = false }) => {
   const addToList = async () => {
     try {
       const res = await axios.post("http://localhost:5000/addWatchList", {
-        movie,
-        email: email,
-        movieId: movie.id,
+        email,
+        data: movie,
       });
       console.log(res);
     } catch (err) {
@@ -78,9 +78,10 @@ const Card = ({ movie, isLiked = false }) => {
                   <BsCheck
                     className="cursor-pointer"
                     title="Remove from List"
-                    onClick={
-                      () => dispatch()
-                      // removeMovieFromLiked({ movieId: movieData.id, email })
+                    onClick={() =>
+                      dispatch(
+                        removeMovieFromLiked({ movieId: movie.id, email })
+                      )
                     }
                   />
                 ) : (

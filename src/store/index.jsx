@@ -84,9 +84,23 @@ export const fetchDataByGenre = createAsyncThunk(
 export const getUsersLikedMovies = createAsyncThunk(
   "flixVerse/liked",
   async (email) => {
-    const { data: movies } = await axios.get(
-      `http://localhost:5000/getWatchList/${email}`
-    );
+    const {
+      data: { movies },
+    } = await axios.get(`http://localhost:5000/getWatchList/${email}`);
+    return movies;
+  }
+);
+
+export const removeMovieFromLiked = createAsyncThunk(
+  "flixVerse/deleteLiked",
+  async ({ movieId, email }) => {
+    console.log(movieId, email);
+    const {
+      data: { movies },
+    } = await axios.put("http://localhost:5000/deleteWatchList", {
+      email,
+      movieId,
+    });
     return movies;
   }
 );
