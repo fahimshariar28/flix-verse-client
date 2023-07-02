@@ -22,7 +22,6 @@ const FlixVerse = () => {
       dispatch(fetchMovies({ genres, type: "all" }));
     }
   }, [genresLoaded]);
-  console.log(movies);
 
   return (
     <div className="bg-black">

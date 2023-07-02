@@ -24,7 +24,6 @@ const Card = ({ movie, isLiked = false }) => {
         email,
         data: movie,
       });
-      console.log(res);
     } catch (err) {
       console.log(err);
     }

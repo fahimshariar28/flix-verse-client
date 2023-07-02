@@ -12,7 +12,6 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     loginUser(email, password)
       .then((userCredential) => {
         // Signed in

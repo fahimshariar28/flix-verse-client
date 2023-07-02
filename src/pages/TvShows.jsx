@@ -19,7 +19,6 @@ const TvShows = () => {
       dispatch(fetchMovies({ genres, type: "tv" }));
     }
   }, [genresLoaded]);
-  console.log(movies);
 
   return (
     <div className="bg-black text-white">

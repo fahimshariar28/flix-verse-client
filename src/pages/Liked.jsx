@@ -9,7 +9,6 @@ const Liked = () => {
   const movies = useSelector((state) => state.flixVerse.movies);
   const dispatch = useDispatch();
   const email = user.email;
-  console.log(movies);
 
   useEffect(() => {
     if (email) {
